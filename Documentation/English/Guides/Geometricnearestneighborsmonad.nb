@@ -1,0 +1,458 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17354,        450]
+NotebookOptionsPosition[     13415,        363]
+NotebookOutlinePosition[     13998,        383]
+CellTagsIndexPosition[     13955,        380]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Geometric nearest neighbors monad", "GuideTitle",
+ CellID->54058011,ExpressionUUID->"58211d76-8445-4186-b51e-9ae3847b9bac"],
+
+Cell["XXXX", "GuideAbstract",
+ CellID->167408196,ExpressionUUID->"4b8c8fd1-9e0c-48b1-9173-a7df53dc6526"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->425972602,ExpressionUUID->"126a6cdc-0e0e-4d3b-ad0a-cb8be29375ef"],
+
+Cell[CellGroupData[{
+
+Cell["Creation", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.903514339377892*^9, 3.903514348850243*^9}},
+ CellID->1901792035,ExpressionUUID->"4cae99fd-1599-4d00-962e-fec95d727c5c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GNNMon",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/GNNMon"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3ef8c657-700b-4f57-94f1-1bbb03373512"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonUnit",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/GNNMonUnit"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"fb29589d-19c4-4f3f-a0a4-e94259115397",ExpressionUUID->
+  "faf4ce7d-7b8b-46e2-ad10-d66012dd363e"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonGetData",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/GNNMonGetData"]]\
+, "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"cc4b0274-5b38-4e14-a693-f011c36d9151",ExpressionUUID->
+  "565b01a9-80d5-4829-98ef-4e7f38e5e66a"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonRescale",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/GNNMonRescale"]]\
+, "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"ecc2c2fe-4380-4a4c-aec5-24e832a2b80d",ExpressionUUID->
+  "626bb145-6d4f-4067-99f8-678a6d051d33"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "d5f5d67a-e04a-4cb5-b430-1590f5a30298"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "1316ad78-16cd-48d8-8f4b-4703fd43be44", 
+     "86e0976d-79f4-4f4b-9dee-756db6bbb750"], $CellContext`cellobj$$ = 
+    CellObject[
+    "af413deb-8b81-4980-a5c0-351d6ae23a6a", 
+     "b8814124-0e44-4416-ab2b-2871fdaff081"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "af413deb-8b81-4980-a5c0-351d6ae23a6a"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.903514231607375*^9, 3.903514233961637*^9}, {
+  3.903514343731194*^9, 3.903514371577176*^9}, {3.90351458212564*^9, 
+  3.903514591550949*^9}, {3.903514865292317*^9, 3.903514888497839*^9}},
+ CellID->221351786,ExpressionUUID->"455bc6f2-7440-44d0-8fb1-3873f22fb2ae"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Finding anomalies", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.903514388069531*^9, 3.903514396572679*^9}},
+ CellID->1777163914,ExpressionUUID->"af0bfa10-1428-46fb-ad26-52f1604cb967"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GNNMonMakeNearestFunction",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/\
+GNNMonMakeNearestFunction"]], "InlineGuideFunction",ExpressionUUID->
+  "cd9a8c25-0400-40bd-a234-38e790d3c42e"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonComputeThresholds",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/\
+GNNMonComputeThresholds"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"e6cd75f0-433a-4b59-b5a5-33da8d3ce4b0",ExpressionUUID->
+  "bc621af9-6529-47ef-8662-fbe9874dc04e"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonFindAnomalies",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/\
+GNNMonFindAnomalies"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"154afceb-4ad7-44e3-a672-46cf496fb29d",ExpressionUUID->
+  "952e1074-0f2d-4094-b7dd-98eb72d73aa1"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonFindNearest",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/\
+GNNMonFindNearest"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c91da55f-e8bf-4500-bc6d-3083fa929c0a",ExpressionUUID->
+  "2da94271-546e-44d8-8f15-7d3626ecbaa2"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonClassify",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/GNNMonClassify"]\
+], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"905238f8-4f58-4735-a874-70c2bed57d3e",ExpressionUUID->
+  "b969c32a-fd18-4a19-a559-90e162605b0b"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "8172e307-8d11-4b9e-b355-faa53154adec"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "1316ad78-16cd-48d8-8f4b-4703fd43be44", 
+     "86e0976d-79f4-4f4b-9dee-756db6bbb750"], $CellContext`cellobj$$ = 
+    CellObject[
+    "76ae9fba-ebb2-4a91-a3f5-5b97c3a1cb90", 
+     "8ca980ec-fc30-49ff-89b2-e6eece68d063"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "76ae9fba-ebb2-4a91-a3f5-5b97c3a1cb90"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.9035144133202744`*^9, 3.9035144264972963`*^9}, {
+  3.903514568834737*^9, 3.90351457854932*^9}, {3.9035148762037077`*^9, 
+  3.903514904414496*^9}},
+ CellID->1876949381,ExpressionUUID->"12b2225c-133a-4424-9f78-b3a0bca4190a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Recommender", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.9035146880992527`*^9, 3.903514691103703*^9}},
+ CellID->1337994344,ExpressionUUID->"da3261dc-3622-412b-8bc8-267f3b4af9a9"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GNNMonComputeProximityMatrix",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/\
+GNNMonComputeProximityMatrix"]], "InlineGuideFunction",ExpressionUUID->
+  "b3c2cd2d-2efa-45b0-be28-ada2b49c3cde"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["GNNMonComputeAdjacencyMatrix",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:AntonAntonov/MonadicGeometricNearestNeighbors/ref/\
+GNNMonComputeAdjacencyMatrix"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"2354c92e-255b-4ba1-bf42-3ae209807534",ExpressionUUID->
+  "b982d86c-a8e1-4710-ad30-28ecebb60c40"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "76950586-b5c7-4ded-a70c-b80c91000abd"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "1316ad78-16cd-48d8-8f4b-4703fd43be44", 
+     "86e0976d-79f4-4f4b-9dee-756db6bbb750"], $CellContext`cellobj$$ = 
+    CellObject[
+    "7658bda1-2aa9-4348-a634-0a4f1e4dc674", 
+     "25011a7f-5f69-4058-9a57-cbba2e13db53"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "7658bda1-2aa9-4348-a634-0a4f1e4dc674"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.903514698874886*^9, 3.9035147074731293`*^9}, {
+  3.9035149084259167`*^9, 3.90351491294622*^9}},
+ CellID->1589437383,ExpressionUUID->"6dbf7bf0-97c5-4aa7-9341-573e78e8dd41"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->817790698,ExpressionUUID->"4050e001-abd8-42a6-a9e9-4ad19d38d439"],
+
+Cell["XXXX", "GuideTutorial",
+ CellID->712920486,ExpressionUUID->"8c3889fb-1aa2-46c8-af75-619c0fc8e9a6"],
+
+Cell["XXXX", "GuideTutorial",
+ CellID->1243341589,ExpressionUUID->"fb79890e-7d4e-4bd9-966f-55e2cc672309"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->1826201013,ExpressionUUID->"8750dde7-7ba5-4711-8f5c-d36a647a6205"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->1124142567,ExpressionUUID->"578c2be3-39c1-4bcf-a629-89ca1b53e993"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->2050480910,ExpressionUUID->"72710358-6c1c-4d17-9592-24280f215fe7"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->1762570961,ExpressionUUID->"83f31ee5-1cc2-4375-9563-3cd956eadd90"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->1140714809,ExpressionUUID->"86f80da2-7074-4d34-b055-a4ec2c3901de"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["1.0.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"bb3f33f7-b77a-4a15-9983-ed1d1e0be13d"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"353290d2-4559-4f53-bc15-f6dc05f89c8f"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "ab9ba0e4-913e-4094-832f-a7f86afdff5c"]
+}], "History",
+ CellChangeTimes->{{3.903514220622183*^9, 3.9035142218129063`*^9}},
+ CellID->1407278094,ExpressionUUID->"af292d39-8a00-4721-957d-40b579be90e7"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1885521447,ExpressionUUID->"9dee51e2-baf0-4008-9486-c363e55ff647"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->1690264597,ExpressionUUID->"82eb1270-b4e1-4142-ac5f-b8eb5f194480"],
+
+Cell["AntonAntonov/MonadicGeometricNearestNeighbors", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1363399263,ExpressionUUID->"ba2d3df9-4d89-4a2c-b31f-ecc166a184d3"],
+
+Cell["AntonAntonov`MonadicGeometricNearestNeighbors`", "Categorization",
+ CellLabel->"Context",
+ CellID->1000899751,ExpressionUUID->"71309764-ad3c-42bc-9d70-b9038e37cfdb"],
+
+Cell["\<\
+AntonAntonov/MonadicGeometricNearestNeighbors/guide/\
+Geometricnearestneighborsmonad\
+\>", "Categorization",
+ CellLabel->"URI",
+ CellID->882708106,ExpressionUUID->"37b6b10b-4a6b-4358-b4a2-673f99060ee0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->858104066,ExpressionUUID->"6ef3fcdb-843e-4d0b-89d8-aa5883a6f0bd"],
+
+Cell["XXXX", "Keywords",
+ CellID->1802347657,ExpressionUUID->"d15f3fce-ac3c-4e7c-ae0d-8d5f3f1620b5"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1401, 1212},
+WindowMargins->{{Automatic, 874}, {Automatic, 21}},
+TaggingRules-><|
+ "Paclet" -> "AntonAntonov/MonadicGeometricNearestNeighbors"|>,
+Magnification:>1.25 Inherited,
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 3, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"1316ad78-16cd-48d8-8f4b-4703fd43be44"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 129, 1, 109, "GuideTitle",ExpressionUUID->"58211d76-8445-4186-b51e-9ae3847b9bac",
+ CellID->54058011],
+Cell[712, 25, 104, 1, 37, "GuideAbstract",ExpressionUUID->"4b8c8fd1-9e0c-48b1-9173-a7df53dc6526",
+ CellID->167408196]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[853, 31, 108, 1, 91, "GuideFunctionsSection",ExpressionUUID->"126a6cdc-0e0e-4d3b-ad0a-cb8be29375ef",
+ CellID->425972602],
+Cell[CellGroupData[{
+Cell[986, 36, 186, 2, 46, "GuideFunctionsSubsection",ExpressionUUID->"4cae99fd-1599-4d00-962e-fec95d727c5c",
+ CellID->1901792035],
+Cell[1175, 40, 3149, 77, 34, "InlineGuideFunctionListing",ExpressionUUID->"455bc6f2-7440-44d0-8fb1-3873f22fb2ae",
+ CellID->221351786]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4361, 122, 195, 2, 46, "GuideFunctionsSubsection",ExpressionUUID->"af0bfa10-1428-46fb-ad26-52f1604cb967",
+ CellID->1777163914],
+Cell[4559, 126, 3552, 86, 61, "InlineGuideFunctionListing",ExpressionUUID->"12b2225c-133a-4424-9f78-b3a0bca4190a",
+ CellID->1876949381]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8148, 217, 191, 2, 46, "GuideFunctionsSubsection",ExpressionUUID->"da3261dc-3622-412b-8bc8-267f3b4af9a9",
+ CellID->1337994344],
+Cell[8342, 221, 2289, 55, 59, "InlineGuideFunctionListing",ExpressionUUID->"6dbf7bf0-97c5-4aa7-9341-573e78e8dd41",
+ CellID->1589437383]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10680, 282, 118, 1, 93, "GuideTutorialsSection",ExpressionUUID->"4050e001-abd8-42a6-a9e9-4ad19d38d439",
+ CellID->817790698],
+Cell[10801, 285, 104, 1, 30, "GuideTutorial",ExpressionUUID->"8c3889fb-1aa2-46c8-af75-619c0fc8e9a6",
+ CellID->712920486],
+Cell[10908, 288, 105, 1, 30, "GuideTutorial",ExpressionUUID->"fb79890e-7d4e-4bd9-966f-55e2cc672309",
+ CellID->1243341589]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11050, 294, 191, 2, 93, "GuideMoreAboutSection",ExpressionUUID->"8750dde7-7ba5-4711-8f5c-d36a647a6205",
+ CellID->1826201013],
+Cell[11244, 298, 106, 1, 30, "GuideMoreAbout",ExpressionUUID->"578c2be3-39c1-4bcf-a629-89ca1b53e993",
+ CellID->1124142567],
+Cell[11353, 301, 106, 1, 30, "GuideMoreAbout",ExpressionUUID->"72710358-6c1c-4d17-9592-24280f215fe7",
+ CellID->2050480910]
+}, Open  ]],
+Cell[11474, 305, 125, 1, 93, "GuideRelatedLinksSection",ExpressionUUID->"83f31ee5-1cc2-4375-9563-3cd956eadd90",
+ CellID->1762570961],
+Cell[CellGroupData[{
+Cell[11624, 310, 111, 1, 90, "MetadataSection",ExpressionUUID->"86f80da2-7074-4d34-b055-a4ec2c3901de",
+ CellID->1140714809],
+Cell[11738, 313, 548, 13, 33, "History",ExpressionUUID->"af292d39-8a00-4721-957d-40b579be90e7",
+ CellID->1407278094],
+Cell[CellGroupData[{
+Cell[12311, 330, 123, 1, 27, "CategorizationSection",ExpressionUUID->"9dee51e2-baf0-4008-9486-c363e55ff647",
+ CellID->1885521447],
+Cell[12437, 333, 134, 2, 87, "Categorization",ExpressionUUID->"82eb1270-b4e1-4142-ac5f-b8eb5f194480",
+ CellID->1690264597],
+Cell[12574, 337, 174, 2, 87, "Categorization",ExpressionUUID->"ba2d3df9-4d89-4a2c-b31f-ecc166a184d3",
+ CellID->1363399263],
+Cell[12751, 341, 171, 2, 87, "Categorization",ExpressionUUID->"71309764-ad3c-42bc-9d70-b9038e37cfdb",
+ CellID->1000899751],
+Cell[12925, 345, 212, 5, 87, "Categorization",ExpressionUUID->"37b6b10b-4a6b-4358-b4a2-673f99060ee0",
+ CellID->882708106]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[13174, 355, 110, 1, 26, "KeywordsSection",ExpressionUUID->"6ef3fcdb-843e-4d0b-89d8-aa5883a6f0bd",
+ CellID->858104066],
+Cell[13287, 358, 100, 1, 87, "Keywords",ExpressionUUID->"d15f3fce-ac3c-4e7c-ae0d-8d5f3f1620b5",
+ CellID->1802347657]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
