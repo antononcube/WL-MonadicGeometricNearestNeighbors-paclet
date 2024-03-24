@@ -664,6 +664,39 @@ GNNMonComputeAdjacencyMatrix[___][xs_, context_Association] :=
       $GNNMonFailure
     ];
 
+(*****Summary Box*****)
+GNNMon /: MakeBoxes[obj_GNNMon, form : StandardForm] :=
+    Block[{ctx = GNNMonBind[obj, GNNMonTakeContext]},
+      BoxForm`ArrangeSummaryBox[
+        GNNMon, gnnObj,
+        None, (*the next argument is the always visible properties*)
+        {
+          BoxForm`SummaryItem@{"Dimensions: ", Dimensions[GNNMonBind[obj, GNNMonTakeData]]},
+          BoxForm`SummaryItem@{"DistanceFunction: ", GNNMonBind[obj, GNNMonTakeContext]["distanceFunction"]},
+          BoxForm`SummaryItem@{"Number of nearest neighbors: ", ctx["numberOfNNs"]},
+          BoxForm`SummaryItem@{"Aggregation function: ", ctx["aggregationFunction"]}
+        },
+        {
+          If[KeyExistsQ[ctx, "nearestFunction"],
+            BoxForm`SummaryItem@{"NearestFunction: ", ctx["nearestFunction"]},
+            Nothing
+          ],
+          If[KeyExistsQ[ctx, "radius"],
+            BoxForm`SummaryItem@{"Radius: ", ctx["radius"]},
+            Nothing
+          ],
+          If[KeyExistsQ[ctx, "lowerThreshold"],
+            BoxForm`SummaryItem@{"Lower threshold: ", ctx["lowerThreshold"]},
+            Nothing
+          ],
+          If[KeyExistsQ[ctx, "upperThreshold"],
+            BoxForm`SummaryItem@{"Upper threshold: ", ctx["upperThreshold"]},
+            Nothing
+          ]
+        },
+        form]
+    ];
+
 End[]; (* `Private` *)
 
 EndPackage[]
