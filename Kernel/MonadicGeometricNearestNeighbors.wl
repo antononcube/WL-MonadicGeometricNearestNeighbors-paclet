@@ -328,7 +328,7 @@ GNNMonFindNearest[$GNNMonFailure] := $GNNMonFailure;
 
 GNNMonFindNearest[xs_, context_Association] := $GNNMonFailure ;
 
-GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nTopNNs_Integer, prop_String : "Values" ][xs_, context_Association] :=
+GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nTopNNs_Integer : 1, prop_String : "Values" ][xs_, context_Association] :=
     GNNMonFindNearest[ pointSpec, {nTopNNs, Infinity}, prop][xs, context];
 
 GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nnSpec : {_Integer, ( Infinity | _?NumericQ)}, prop_String : "Values" ][xs_, context_Association] :=
@@ -392,7 +392,7 @@ GNNMonClassify[ prop_String : "Decision", opts : OptionsPattern[] ][xs_, context
     GNNMonClassify[ Automatic, prop, opts][xs, context];
 
 GNNMonClassify[ Automatic, prop_String : "Decision", opts : OptionsPattern[] ][xs_, context_Association] :=
-    Block[{data, points},
+    Block[{data},
 
       data = GNNMonTakeData[xs, context];
       If[ TrueQ[ data === $GNNMonFailure ], Return[$GNNMonFailure] ];
