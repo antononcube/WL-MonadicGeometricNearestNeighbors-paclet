@@ -668,7 +668,7 @@ GNNMonComputeAdjacencyMatrix[___][xs_, context_Association] :=
 GNNMon /: MakeBoxes[obj_GNNMon, form : StandardForm] :=
     Block[{ctx = GNNMonBind[obj, GNNMonTakeContext]},
       BoxForm`ArrangeSummaryBox[
-        GNNMon, gnnObj,
+        GNNMon, obj,
         None, (*the next argument is the always visible properties*)
         {
           BoxForm`SummaryItem@{"Dimensions: ", Dimensions[GNNMonBind[obj, GNNMonTakeData]]},
