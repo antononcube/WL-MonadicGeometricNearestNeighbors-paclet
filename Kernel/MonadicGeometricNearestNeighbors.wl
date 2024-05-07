@@ -692,7 +692,8 @@ GNNMon /: MakeBoxes[obj_GNNMon, form : StandardForm] :=
           If[KeyExistsQ[ctx, "upperThreshold"],
             BoxForm`SummaryItem@{"Upper threshold: ", ctx["upperThreshold"]},
             Nothing
-          ]
+          ],
+          BoxForm`SummaryItem@{"Value: ", Short @ GNNMonBind[obj, GNNMonTakeValue]}
         },
         form]
     ];
