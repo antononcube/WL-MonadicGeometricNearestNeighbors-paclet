@@ -331,7 +331,7 @@ GNNMonFindNearest[xs_, context_Association] := $GNNMonFailure ;
 GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nTopNNs_Integer : 1, prop_String : "Values" ][xs_, context_Association] :=
     GNNMonFindNearest[ pointSpec, {nTopNNs, Infinity}, prop][xs, context];
 
-GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nnSpec : {_Integer, ( Infinity | _?NumericQ)}, prop_String : "Values" ][xs_, context_Association] :=
+GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nnSpec : {All | _Integer, ( Infinity | _?NumericQ)}, prop_String : "Values" ][xs_, context_Association] :=
     Block[{data, nf, nns},
 
       data = Fold[ GNNMonBind, GNNMonUnit[xs, context], { GNNMonGetData, GNNMonTakeValue } ];
@@ -339,14 +339,14 @@ GNNMonFindNearest[ pointSpec : (_?VectorQ | {_?VectorQ ..}), nnSpec : {_Integer,
 
       nf = GNNMonTakeNearestFunction[xs, context];
       If[ TrueQ[ nf === $GNNMonFailure ], Return[$GNNMonFailure] ];
-
       Which[
         MemberQ[ { "indices", "indexes", "ids" }, ToLowerCase[prop]],
         nns = nf[pointSpec, nnSpec],
 
         MemberQ[ { "values", "points" }, ToLowerCase[prop]],
         nns = nf[pointSpec, nnSpec];
-        nns = data[[ nns ]],
+        (* Isn't data always and association? *)
+        nns = If[AssociationQ[data], KeyTake[data, nns], data[[ nns ]]],
 
         ToLowerCase[prop] == "properties",
         Echo[ {"Indices", "Values", "Properties"}, "GNNMonFindNearest:"];
