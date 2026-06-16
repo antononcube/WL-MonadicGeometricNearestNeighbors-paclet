@@ -185,7 +185,7 @@ GNNMonGetData[___][xs_, context_Association] := $GNNMonFailure;
 
 
 (**************************************************************)
-(* Find distance from a point to matrix rows                  *)
+(* Rescale points collection                                  *)
 (**************************************************************)
 (* Non-monadic at this point. *)
 
